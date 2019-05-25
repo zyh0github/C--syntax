@@ -1,6 +1,6 @@
 
 <html>
-<head><title>The Syntax Analyzer</title>
+<head>The Syntax Analyzer
 <body>
 <br><br>
 <p>Implement a parser for the language C Minus which is defined in your textbook. 
@@ -39,7 +39,8 @@
 &lt;call&gt; -&gt; <b>ID (</b> &lt;args&gt; <b>)</b>
 &lt;args&gt; -&gt; &lt;arg-list&gt; | &lt;empty&gt;
 &lt;arg-list&gt; -&gt; &lt;arg-list&gt; <b>,</b> &lt;expression&gt; | &lt;expression&gt;
-
+<br><br>
+<br><br>
 C-Minus 的 LL(1) 文法如下：
 program -> declaration_list
 
