@@ -1,14 +1,7 @@
 
 <html>
-<head><title>Homework Assignment #2 - The Syntax Analyzer</title>
+<head><title>The Syntax Analyzer</title>
 <body>
-<table bgcolor="yellow" border="1" align="center">
-<tr><td width="25%" align="center">CSE 481</td>
-    <td width="50%" align="center">Homework Assignment #2 - The Syntax Analyzer</td>
-	<td>100 Points</td>
-    <td  align="center">Due date March 20.</td>
-</tr>
-</table>
 <br><br>
 <p>Implement a parser for the language C Minus which is defined in your textbook. 
   The grammar is given below.</p>
