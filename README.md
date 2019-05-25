@@ -1,6 +1,6 @@
 
 <html>
-<head><title>The Syntax Analyzer</title><head>
+<head><title>The Syntax Analyzer</title>
 <body>
 <br><br>
 <p>Implement a parser for the language C Minus which is defined in your textbook. 
@@ -39,6 +39,84 @@
 &lt;call&gt; -&gt; <b>ID (</b> &lt;args&gt; <b>)</b>
 &lt;args&gt; -&gt; &lt;arg-list&gt; | &lt;empty&gt;
 &lt;arg-list&gt; -&gt; &lt;arg-list&gt; <b>,</b> &lt;expression&gt; | &lt;expression&gt;
+
+C-Minus 的 LL(1) 文法如下：
+program -> declaration_list
+
+declaration_list -> declaration declaration_list1
+
+declaration_list1 -> empty  |  declaration declaration_list1
+
+declaration -> type_specifier ID var_fun
+
+type_specifier -> INT  |  VOID
+
+var_fun -> subscript | ( params )  compound_stmt
+
+subscript -> empty | [ NUM ] 
+
+params -> param_list  |  VOID
+
+param_list -> param param_list1
+
+param_list1 -> empty | , param param_list1
+
+param -> type_specifier subscript2
+
+subscript2 -> empty | []
+
+compound_stmt -> { local_declarations statement_list }
+
+local_declarations -> empty | type_specifier ID subscript local_declarations
+
+statement_list -> empty | statement statement_list
+
+statement -> expression_stmt  |  compound_stmt  |  selection_stmt  |  iteration_stmt  |  return_stmt
+
+expression_stmt -> expression ;  |  ;
+
+selection_stmt -> IF ( expression ) statement  others
+
+others -> empty | ELSE statement
+
+iteration_stmt -> WHILE ( expression ) statement
+
+return_stmt -> RETURN  |  RETURN expression 
+
+expression -> var = expression  |  simple_expression
+
+var -> ID var1
+
+var1 -> empty | [ expression ]
+
+simple_expression -> additive_expression additive_expression1 
+
+additive_expression1 -> empty | relop additive_expression1
+
+relop -> <  |  <=  |  >  |  >=  |  ==  |  !=
+
+additive_expression -> term additive_expression1
+
+additive_expression1 -> empty | addop term additive_expression1
+
+addop -> +  |  -
+
+term -> factor term1
+
+term1 -> empty | mulop factor term1
+
+mulop -> *  |  /
+
+factor -> ( expression )  |  var  |  call  |  NUM
+
+call -> ID ( args )
+
+args -> arg_list  |  empty
+
+arg_list -> expression arg_list1
+
+arg_list1 -> empty | , expression arg_list1
+
 </pre>
 <h2 align="center">Other Requirements</h2>
 <ol>
