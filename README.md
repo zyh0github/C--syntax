@@ -1,6 +1,6 @@
 
 <html>
-<head><title>The Syntax Analyzer</title>
+<head><title>The Syntax Analyzer</title><head>
 <body>
 <br><br>
 <p>Implement a parser for the language C Minus which is defined in your textbook. 
